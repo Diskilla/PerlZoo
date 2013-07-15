@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 20;
+use Test::More tests => 24;
 use lib '..';
 
 use Animal;
@@ -53,3 +53,11 @@ can_ok( $wanda, 'get_AttackPower' );
 can_ok( $lassie, 'Bite' );
 # kann Smokey die Spezialattacke 'Claw' ausführen?
 can_ok( $smokey, 'Claw' );
+
+# neues Objekt vom Typ Shepard anlegen
+my $wauwau = Shepard->New( Name => "Alfons", AttackPower => undef );
+isa_ok( $wauwau, 'Shepard', "Alfons" );
+is( $wauwau->{Name}, 'Alfons', "wauwau is named Alfons" );
+# kann Alfons kämpfen?
+can_ok( $wauwau, 'get_AttackPower' );
+can_ok( $wauwau, 'Fight' );

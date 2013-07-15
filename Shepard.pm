@@ -1,6 +1,8 @@
 package Shepard;
 
 use base Dog;
+use Animal;
+use Dog;
 
 sub Speak {
     my $name = $_[0]->{Name};
