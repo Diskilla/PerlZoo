@@ -17,7 +17,7 @@ sub get_AttackPower {
 }
 
 sub Fight {
-    my ($self) = shift;
+    my $self = shift;
     $self->get_AttackPower();
 }
 

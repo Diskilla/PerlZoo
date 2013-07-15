@@ -17,6 +17,7 @@ foreach my $name (qw( Fritzi Smokey Mietze )) {
     push(@pets, Cat->New( Name => $name, AttackPower => 11 ));
 }
 
+# Ausgabe der "normalen" Angriffswerte.
 my $index = 0;
 
 while ( $index <= $#pets ) {
@@ -30,3 +31,29 @@ while ( $index <= $#pets ) {
     }
 }
 print "-------------------------------------\n";
+# Ausgabe der Angriffswerte bei ersten "Spezialattacken".
+my $petIndex = 0;
+foreach my $i (@pets) {
+    if ($pets[$petIndex]->getClass() eq 'Dog') {
+        print(  $pets[$petIndex]->{Name},
+                " => ",
+                $pets[$petIndex]->Bite(),
+                "\n"
+                );
+    } elsif ($pets[$petIndex]->getClass() eq 'Cat'){
+        print(  $pets[$petIndex]->{Name},
+                " => ",
+                $pets[$petIndex]->Claw(),
+                "\n"
+                );
+    } else {
+        print(  $pets[$petIndex]->{Name},
+                " => ",
+                $pets[$petIndex]->Fight(),
+                "\n"
+                );
+    }
+    $petIndex++;
+}
+print "-------------------------------------\n";
+

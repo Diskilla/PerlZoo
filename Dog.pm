@@ -17,5 +17,17 @@ sub getClass {
     return $class;
 }
 
+sub Fight {
+    my $self = shift;
+    my $attackPower = $self->get_AttackPower();
+    return $attackPower;
+}
+
+sub Bite {
+    my $self = shift;
+    my $attackPower = $self->get_AttackPower() + 1;
+    return $attackPower;
+}
+
 # make Perl happy
 1;
