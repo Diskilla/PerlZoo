@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 13;
+use Test::More tests => 15;
 use lib '..';
 
 use Animal;
@@ -37,3 +37,8 @@ can_ok( $smokey, 'Fight' );
 # können beide ihre AttackPower ausgeben?
 can_ok( $lassie, 'get_AttackPower' );
 can_ok( $smokey, 'get_AttackPower' );
+# kann Lassie die Spezialattacke 'Bite' ausführen?
+can_ok( $lassie, 'Bite' );
+# kann Smokey die Spezialattacke 'Claw' ausführen?
+can_ok( $smokey, 'Claw' );
+
