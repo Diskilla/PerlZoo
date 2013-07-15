@@ -6,6 +6,7 @@ use warnings;
 use Animal;
 use Dog;
 use Cat;
+use Goldfish;
 
 my @pets;
 # create Dog Objects
@@ -16,10 +17,12 @@ foreach my $name (qw( Muecke Keagan Fluffy )) {
 foreach my $name (qw( Fritzi Smokey Mietze )) {
     push(@pets, Cat->New( Name => $name, AttackPower => 11 ));
 }
+# create Goldfish
+my $fishy = Goldfish->New( Name => "Wanda", AttackPower => undef );
 
 # Ausgabe der "normalen" Angriffswerte.
 my $index = 0;
-
+print( "'Normaler' Angriff\n" );
 while ( $index <= $#pets ) {
     foreach my $tierchen (@pets) {
         print(  $pets[$index]->{Name},
@@ -29,25 +32,31 @@ while ( $index <= $#pets ) {
              );
         $index++;
     }
+print(  $fishy->{Name},
+        " => ",
+        $fishy->Fight(),
+        "\n"
+     );
 }
 print "-------------------------------------\n";
 # Ausgabe der Angriffswerte bei ersten "Spezialattacken".
 my $petIndex = 0;
+print("'Spezialangriff'\n");
 foreach my $i (@pets) {
     if ($pets[$petIndex]->getClass() eq 'Dog') {
-        print(  $pets[$petIndex]->{Name},
+        print(  $pets[$petIndex]->{Name}, " bites for",
                 " => ",
                 $pets[$petIndex]->Bite(),
                 "\n"
                 );
     } elsif ($pets[$petIndex]->getClass() eq 'Cat'){
-        print(  $pets[$petIndex]->{Name},
+        print(  $pets[$petIndex]->{Name}, " claws for",
                 " => ",
                 $pets[$petIndex]->Claw(),
                 "\n"
                 );
     } else {
-        print(  $pets[$petIndex]->{Name},
+        print(  $pets[$petIndex]->{Name}, " hits for",
                 " => ",
                 $pets[$petIndex]->Fight(),
                 "\n"

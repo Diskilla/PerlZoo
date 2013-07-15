@@ -2,17 +2,20 @@
 
 use strict;
 
-use Test::More tests => 15;
+use Test::More tests => 18;
 use lib '..';
 
 use Animal;
 use Dog;
 use Shepard;
 use Cat;
+use Goldfish;
+
 # Modulzugriff testen'
 use_ok( 'Dog' ) or exit;
 use_ok( 'Cat' ) or exit;
 use_ok( 'Shepard' ) or exit;
+use_ok( 'Goldfish' ) or exit;
 
 # Ist Lassie ein 'Dog'-Objekt und heißt Lassie?
 my $lassie = Dog->New( Name => "Lassie", AttackPower => undef );
@@ -29,6 +32,11 @@ is( $smokey->{Name}, 'Smokey', "smokey is named Smokey" );
 
 # hat Smokey eine AttackPower?
 ok(exists $lassie->{AttackPower}, "Smokey has an AttackPower");
+
+# ist Wanda ein Fish und heißt Wanda?
+my $wanda = Goldfish->New( Name => "Wanda", AttackPower => undef);
+isa_ok( $wanda, 'Goldfish', "Wanda" );
+is( $wanda->{Name}, 'Wanda', "wanda is names Wanda" );
 
 # können Lassie und Smokey kämpfen?
 can_ok( $lassie, 'Fight' );
