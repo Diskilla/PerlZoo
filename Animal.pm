@@ -5,6 +5,12 @@ sub New {
 
     my $self = {};
     $self->{Name} = undef;
+
+    if ($obj->{AttackPower} == undef) {
+        $obj->{AttackPower} = 10;
+    }
+
+    my $attackPower = $obj->{AttackPower};
     $self->{AttackPower} = 10;
 
     return bless({ @_ }, $class);

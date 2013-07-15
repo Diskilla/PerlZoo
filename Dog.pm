@@ -2,10 +2,15 @@ package Dog;
 
 use base Animal;
 
-
 sub Speak {
     my ( $obj ) = @_;
     my $name = $obj->{Name};
+
+    if ($obj->{AttackPower} == undef) {
+        $obj->{AttackPower} = 10;
+    }
+
+    my $attackPower = $obj->{AttackPower};
     return( $name." says Woof!\n");
 }
 
