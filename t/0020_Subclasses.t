@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 9;
+use Test::More tests => 11;
 use lib '..';
 
 use Animal;
@@ -29,3 +29,7 @@ is( $smokey->{Name}, 'Smokey', "smokey is named Smokey" );
 
 # hat Smokey eine AttackPower?
 ok(exists $lassie->{AttackPower}, "Smokey has an AttackPower");
+
+# können Lassie und Smokey kämpfen?
+can_ok( $lassie, 'Fight' );
+can_ok( $smokey, 'Fight' );
