@@ -2,17 +2,14 @@ package Dog;
 
 use base Animal;
 
+use Animal;
+
+my $self = shift;
+
 sub Speak {
-    my ( $obj ) = @_;
+    my $obj = shift;
     my $name = $obj->{Name};
-
-    return( $name." says Woof!\n");
-}
-
-sub Fight {
-    my ($self) = shift;
-    my $attackPower = $attackPower + 1;
-    return $attackPower;
+    return ( $name." says Woof!\n");
 }
 
 sub getClass {

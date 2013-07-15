@@ -8,6 +8,19 @@ sub New {
     return bless({ @_ }, $class);
 }
 
+sub get_AttackPower {
+    $self = shift;
+    if ( $self->{AttackPower} == undef ) {
+        $self->{AttackPower} = 10;
+    }
+    return $self->{AttackPower};
+}
+
+sub Fight {
+    my ($self) = shift;
+    $self->get_AttackPower();
+}
+
 # DESTROY ist nur nötig, wenn man beim 'Aufäumen' auch eine Rückmeldung will.
 # Perl macht dies automatisch.
 sub DESTROY {

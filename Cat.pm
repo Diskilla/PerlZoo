@@ -2,8 +2,9 @@ package Cat;
 
 use base Animal;
 
+use Animal;
+
 my $self = shift;
-my $attackPower = Animal->{AttackPower};
 
 sub Speak {
     my $obj = shift;
@@ -11,15 +12,10 @@ sub Speak {
     return ( $name." says Mew!\n" );
 }
 
-sub Fight {
-    my ($self) = shift;
-    my $attackPower = $attackPower + 2;
-    return $attackPower;
-}
-
 sub getClass {
-    my ($class) = __PACKAGE__;
+    my ( $class ) = __PACKAGE__;
     return $class;
 }
 
+# make Perl happy
 1;
