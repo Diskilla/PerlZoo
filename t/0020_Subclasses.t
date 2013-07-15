@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 18;
+use Test::More tests => 20;
 use lib '..';
 
 use Animal;
@@ -36,17 +36,20 @@ ok(exists $lassie->{AttackPower}, "Smokey has an AttackPower");
 # ist Wanda ein Fish und heißt Wanda?
 my $wanda = Goldfish->New( Name => "Wanda", AttackPower => undef);
 isa_ok( $wanda, 'Goldfish', "Wanda" );
-is( $wanda->{Name}, 'Wanda', "wanda is names Wanda" );
+is( $wanda->{Name}, 'Wanda', "wanda is named Wanda" );
 
 # können Lassie und Smokey kämpfen?
 can_ok( $lassie, 'Fight' );
 can_ok( $smokey, 'Fight' );
+# kann Wanda kämpfen?
+can_ok( $wanda, 'Fight' );
 
 # können beide ihre AttackPower ausgeben?
 can_ok( $lassie, 'get_AttackPower' );
 can_ok( $smokey, 'get_AttackPower' );
+# kann Wanda ihre AttackPower ausgeben?
+can_ok( $wanda, 'get_AttackPower' );
 # kann Lassie die Spezialattacke 'Bite' ausführen?
 can_ok( $lassie, 'Bite' );
 # kann Smokey die Spezialattacke 'Claw' ausführen?
 can_ok( $smokey, 'Claw' );
-
