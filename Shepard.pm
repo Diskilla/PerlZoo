@@ -7,11 +7,6 @@ sub Speak {
     return( $name, " says Grrr" );
 }
 
-# sub Fight {
-#     my $attackPower = 15;
-#     return $attackPower;
-# }
-
 sub getClass {
     my ( $class ) = __PACKAGE__;
     return $class;
