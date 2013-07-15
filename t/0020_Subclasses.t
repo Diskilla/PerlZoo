@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 24;
+use Test::More tests => 25;
 use lib '..';
 
 use Animal;
@@ -12,6 +12,7 @@ use Cat;
 use Goldfish;
 
 # Modulzugriff testen'
+use_ok( 'Animal' ) or exit;
 use_ok( 'Dog' ) or exit;
 use_ok( 'Cat' ) or exit;
 use_ok( 'Shepard' ) or exit;
