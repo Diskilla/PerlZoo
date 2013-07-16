@@ -65,4 +65,6 @@ foreach my $i (@pets) {
     $petIndex++;
 }
 print "-------------------------------------\n";
-
+# test für AUTOLOAD
+$fishy->blarg(10);              # our $AUTOLOAD will be set to main::blarg
+print "Still alive!\n";

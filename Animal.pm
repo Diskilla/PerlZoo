@@ -19,18 +19,19 @@ sub get_AttackPower {
 sub Fight ( animal1 ){
     my $self = shift( @_ );
     my $animal1_erg = $self[0]->get_AttackPower();
-    my $animal2_erg = $self[1]->get_AttackPower();
-    if ( $animal1_erg > $animal2_erg ) {
-        return animal1;
-    } else {
-        return animal2;
-    }
+
 }
 
 # DESTROY ist nur nötig, wenn man beim 'Aufäumen' auch eine Rückmeldung will.
 # Perl macht dies automatisch.
 sub DESTROY {
-    
+    my $self = shift;
 }
+
+sub AUTOLOAD {
+    our $AUTOLOAD;
+    warn "Attempt to call $AUTOLOAD failed.\n";
+}
+
 # make Perl happy
 1;
