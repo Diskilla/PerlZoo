@@ -18,7 +18,7 @@ foreach my $name (qw( Fritzi Smokey Mietze )) {
     push(@pets, Cat->New( Name => $name, AttackPower => 11 ));
 }
 # create Goldfish
-my $fishy = Goldfish->New( Name => "Wanda", AttackPower => undef );
+my $fishy = Goldfish->New( Name => "Wanda", AttackPower => 2 );
 
 # Ausgabe der "normalen" Angriffswerte.
 my $index = 0;
@@ -34,7 +34,7 @@ while ( $index <= $#pets ) {
     }
 print(  $fishy->{Name},
         " => ",
-        $fishy->Fight(),
+        $fishy->get_AttackPower(),
         "\n"
      );
 }
@@ -66,6 +66,6 @@ foreach my $i (@pets) {
 }
 print "-------------------------------------\n";
 # test für AUTOLOAD
-$fishy->eat();              # our $AUTOLOAD will be set to main::eat()
-print $fishy->Fight();
-print "\nStill alive!\n";
+print $fishy->eat();              # our $AUTOLOAD will be set to main::eat()
+
+print("\nWinner: ", $fishy->Fight( $fishy, $pets[3] ), "\n" );

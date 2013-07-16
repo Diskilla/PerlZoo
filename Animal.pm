@@ -12,14 +12,24 @@ sub get_AttackPower {
     $self = shift;
     if ( $self->{AttackPower} == undef ) {
         $self->{AttackPower} = 10;
+    } else {
+        $self->{AttackPower};
     }
     return $self->{AttackPower};
 }
 
-sub Fight ( animal1 ){
+sub Fight {
     my $self = shift( @_ );
-    my $animal1_erg = $self[0]->get_AttackPower();
-
+    my $animal1_erg = $_[0]->get_AttackPower();
+    my $animal2_erg = $_[1]->get_AttackPower();
+    if ( $animal1_erg > $animal2_erg ) {
+        return $_[0]->{Name};
+    } elsif ( $animal1_erg == $animal2_erg ) {
+        return "draw"
+    } else {
+        return $_[1]->{Name};
+    }
+    return($_[0], " => $animal1_erg\n", $_[1], " => $animal2_erg");
 }
 
 # DESTROY ist nur nötig, wenn man beim 'Aufäumen' auch eine Rückmeldung will.
