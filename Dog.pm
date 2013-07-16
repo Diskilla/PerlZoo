@@ -1,3 +1,5 @@
+# Autor: Josef Florian Sedlmeier
+
 package Dog;
 
 use base Animal;

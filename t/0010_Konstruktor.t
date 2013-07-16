@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Autor: Josef Florian Sedlmeier
 
 use strict;
 

@@ -1,3 +1,5 @@
+# Autor: Josef Florian Sedlmeier
+
 package Cat;
 
 use base Animal;
