@@ -51,6 +51,19 @@ sub AUTOLOAD {
         };
         die $@ if $@;
         goto &eat;
+    } elsif ( $method eq "set_AttackPower" ) {
+        eval q{
+            sub set_AttackPower {
+                my $self = shift;
+                my $newAttackPower = shift;
+                if ( defined $newAttackPower ){
+                    $self->{AttackPower} = $newAttackPower
+                }
+                return $self->{AttackPower};
+            }
+        };
+        die $@ if $@;
+        goto &set_AttackPower;
     } else {
         croak("$_[0] does not know how to $method\n");
     }
