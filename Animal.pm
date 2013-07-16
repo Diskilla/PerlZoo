@@ -27,9 +27,23 @@ sub Fight ( animal1 ){
 sub DESTROY {
     my $self = shift;
 }
-
+# Autoload Methode um Aufrufe von unbekannten Subroutinen abzufangen.
 sub AUTOLOAD {
     our $AUTOLOAD;
+    ( my $method = $AUTOLOAD ) =~ s/.*:://s;
+    if ( $method eq "eat" ) {
+        eval q{
+            sub eat {
+                my $self = shift;
+                $self->{AttackPower} = ( $self->{AttackPower} + 1 );
+                return "gained one AP";
+            }
+        };
+        die $@ if $@;
+        goto &eat;
+    } else {
+        croak("$_[0] does not know how to $method\n");
+    }
     warn "Attempt to call $AUTOLOAD failed.\n";
 }
 

@@ -66,5 +66,6 @@ foreach my $i (@pets) {
 }
 print "-------------------------------------\n";
 # test für AUTOLOAD
-$fishy->blarg(10);              # our $AUTOLOAD will be set to main::blarg
-print "Still alive!\n";
+$fishy->eat();              # our $AUTOLOAD will be set to main::eat()
+print $fishy->Fight();
+print "\nStill alive!\n";
