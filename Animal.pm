@@ -10,9 +10,10 @@ sub New {
 
 sub get_AttackPower {
     $self = shift;
-    if ( $self->{AttackPower} == undef ) {
-        $self->{AttackPower} = 10;
+    if ( defined $self->{AttackPower} ) {
+        $self->{AttackPower};
     } else {
+        $self->{AttackPower} = 10;
         $self->{AttackPower};
     }
     return $self->{AttackPower};
@@ -46,7 +47,7 @@ sub AUTOLOAD {
             sub eat {
                 my $self = shift;
                 $self->{AttackPower} = ( $self->{AttackPower} + 1 );
-                return "gained one AP";
+                return $self->{AttackPower};
             }
         };
         die $@ if $@;

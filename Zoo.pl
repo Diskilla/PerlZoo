@@ -66,7 +66,9 @@ foreach my $i (@pets) {
 }
 print "-------------------------------------\n";
 # test für AUTOLOAD
-print( "Wanda eats, ", $fishy->eat() );              # our $AUTOLOAD will be set to main::eat()
 $fishy->set_AttackPower(15);
+print( "Wanda eats, ", $fishy->eat(), "\n" );
+print("AP Wanda: ", $fishy->get_AttackPower(), "\n" );
+print("AP Fritzi: ", $pets[3]->get_AttackPower(), "\n" );
 print( "\nWanda vs. Fritzi\n" );
 print( "Winner: ", $fishy->Fight( $fishy, $pets[3] ), "\n" ); # Fisch Wanda vs. Katze Fritzi
